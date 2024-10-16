@@ -1,54 +1,49 @@
 #!/usr/bin/env python
-import sys
+import os
+import chainlit
+import chainlit.cli
+import chainlit.config
+from crewai.crew import CrewOutput
 from mystekz_focus_group.crew import MystekzFocusGroupCrew
 
-# This main file is intended to be a way for your to run your
-# crew locally, so refrain from adding necessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
+@chainlit.set_starters
+async def set_starters():
+    return [
+        chainlit.Starter(
+            label="Present the 'Stages' idea.",
+            message="""
+                A business consultant normally maps the current state of the business. After that, the next step is ofthen identifying areas of improvement. In our current application you can only model the business once and update that model. However, we're thinking about adding a concept called 'stages' so you can model different versions of the businenss in parallel to each other. That way you can more easily model an improved or digitized version of the business.
+            """,
+        ),
+    ]
 
-def run():
-    """
-    Run the crew.
-    """
-    inputs = {
-        'idea': 'For project management we have the following issue. When the business consultant finishes their work, it is a complete and detailed business process. For an IT project, we may choose to selectively implement parts of a process first. As currently you can only access the business model as is, it is hard to translate this. I have thought of the following feature to resolve this. We should incorporate a new concept called "stages". This would mean that you can create a variation of the business model in several stages. These stages are named by the user, e.g. "MVP" or "Phase 1".'
-    }
-    MystekzFocusGroupCrew().crew().kickoff(inputs=inputs)
+@chainlit.on_message
+async def on_message(message):
+    crew_output = await focus_group(inputs={
+        "idea": message.content,
+    })
+    await chainlit.Message(
+        content=crew_output.raw,
+    ).send()
+    print("===========================")
+    print("Tasks output:")
+    print(crew_output.tasks_output)
+    print("===========================")
+    print(f"Token Usage: {crew_output.token_usage}")
+
+@chainlit.step(name="MyStekz focus group", type="tool")
+async def focus_group(inputs: dict) -> CrewOutput:
+    """Runs the focus group with given inputs."""
+    return MystekzFocusGroupCrew().crew().kickoff(inputs)
 
 
-# def train():
-#     """
-#     Train the crew for a given number of iterations.
-#     """
-#     inputs = {
-#         "idea": "AI LLMs"
-#     }
-#     try:
-#         MystekzFocusGroupCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
-#
-#     except Exception as e:
-#         raise Exception(f"An error occurred while training the crew: {e}")
+file_ = os.path.realpath(__file__)
 
-def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
-    try:
-        MystekzFocusGroupCrew().crew().replay(task_id=sys.argv[1])
+def chat():
+    """Run the Chainlit app."""
+    chainlit.cli.run_chainlit(file_)
 
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
-
-# def test():
-#     """
-#     Test the crew execution and returns the results.
-#     """
-#     inputs = {
-#         "topic": "AI LLMs"
-#     }
-#     try:
-#         MystekzFocusGroupCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
-#
-#     except Exception as e:
-#         raise Exception(f"An error occurred while replaying the crew: {e}")
+def chat_watch():
+    """Run the Chainlit app with watch enabled."""
+    chainlit.config.config.run.watch = True
+    chainlit.cli.run_chainlit(file_)

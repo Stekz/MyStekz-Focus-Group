@@ -7,14 +7,12 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
 crewai = { extras = ["tools"], version = ">=0.70.1,<1.0.0" }
+chainlit = "^1.2.0"
 
 
 [tool.poetry.scripts]
-mystekz_focus_group = "mystekz_focus_group.main:run"
-run_crew = "mystekz_focus_group.main:run"
-train = "mystekz_focus_group.main:train"
-replay = "mystekz_focus_group.main:replay"
-test = "mystekz_focus_group.main:test"
+chat = "mystekz_focus_group.main:chat"
+chat_watch = "mystekz_focus_group.main:chat_watch"
 
 [build-system]
 requires = ["poetry-core"]

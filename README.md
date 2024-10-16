@@ -6,17 +6,14 @@ Welcome to the MystekzFocusGroup Crew project, powered by [crewAI](https://crewa
 
 Ensure you have Python >=3.10 <=3.13 installed on your system. This project uses [Poetry](https://python-poetry.org/) for dependency management and package handling, offering a seamless setup and execution experience.
 
-First, if you haven't already, install Poetry:
-
-```bash
-pip install poetry
-```
+First, if you haven't already, install Poetry.
 
 Next, navigate to your project directory and install the dependencies:
 
 1. First lock the dependencies and install them by using the CLI command:
 ```bash
-crewai install
+poetry install
+poetry run crewai install
 ```
 ### Customizing
 
@@ -32,23 +29,15 @@ crewai install
 To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
 
 ```bash
-$ crewai run
+$ poetry run chat
 ```
 
-This command initializes the mystekz-focus-group Crew, assembling the agents and assigning them tasks as defined in your configuration.
+To enable the watcher, run:
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+```bash
+$ poetry run chat_watch
+```
 
-## Understanding Your Crew
+This command starts up a chanlit chat which will use the focus group for any idea you throw at them. 
 
-The mystekz-focus-group Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
-## Support
-
-For support, questions, or feedback regarding the MystekzFocusGroup Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
+**NOTE**: The Chainlit app may not always show the response. The results and all intermediate steps taken are printed in the console.
