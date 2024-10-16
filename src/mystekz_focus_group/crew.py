@@ -44,6 +44,7 @@ class MystekzFocusGroupCrew():
     def respond_to_idea_project_manager(self) -> Task:
         return Task(
             config=self.tasks_config['respond_to_idea_project_manager'],
+            input_file="output/business_consultant_response.md",
             output_file="output/project_manager_response.md",
         )
 
