@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "mystekz_focus_group"
+version = "0.1.0"
+description = "mystekz-focus-group using crewAI"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = ">=0.70.1,<1.0.0" }
+
+
+[tool.poetry.scripts]
+mystekz_focus_group = "mystekz_focus_group.main:run"
+run_crew = "mystekz_focus_group.main:run"
+train = "mystekz_focus_group.main:train"
+replay = "mystekz_focus_group.main:replay"
+test = "mystekz_focus_group.main:test"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

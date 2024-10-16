@@ -1,0 +1,20 @@
+respond_to_idea_business_consultant:
+  description: >
+    Think along with and be critical about {idea}.
+  expected_output: >
+    A list of considerations including positives, negatives and ajecent ideas.
+  agent: business_consultant
+
+respond_to_idea_project_manager:
+  description: >
+    Think along with and be critical about {idea}.
+  expected_output: >
+    A list of considerations including positives, negatives and ajecent ideas.
+  agent: project_manager
+
+summarize:
+  description: >
+    Summarize the focus group output.
+  expected_output: >
+    A consise summary of what's discussed in the focus group.
+  agent: summarizer

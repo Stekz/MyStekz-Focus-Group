@@ -1,0 +1,6 @@
+__pycache__/
+output/
+.chainlit/translations/
+.venv
+.env
+.aider*
