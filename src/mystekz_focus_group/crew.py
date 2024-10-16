@@ -33,6 +33,13 @@ class MystekzFocusGroupCrew():
             verbose=True
         )
 
+    @agent
+    def discussion_moderator(self) -> Agent:
+        return Agent(
+            config=self.agents_config['discussion_moderator'],
+            verbose=True
+        )
+
     @task
     def respond_to_idea_business_consultant(self) -> Task:
         return Task(
@@ -63,7 +70,8 @@ class MystekzFocusGroupCrew():
             tasks=[
                 self.respond_to_idea_business_consultant(),
                 self.respond_to_idea_project_manager(),
-                self.summarize()
+                self.discuss_ideas(),
+                self.summarize(),
             ],
             process=Process.sequential,
             verbose=True,
