@@ -67,4 +67,6 @@ class MystekzFocusGroupCrew():
             ],
             process=Process.sequential,
             verbose=True,
+            full_output=True,
+            share_crew=False,
         )

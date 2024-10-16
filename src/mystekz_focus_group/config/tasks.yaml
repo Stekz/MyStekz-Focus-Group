@@ -4,8 +4,6 @@ respond_to_idea_business_consultant:
   expected_output: >
     A list of considerations including positives, negatives and adjecent ideas.
   agent: business_consultant
-  input_file: null
-  output_file: output/business_consultant_response.md
 
 respond_to_idea_project_manager:
   description: >
@@ -13,8 +11,6 @@ respond_to_idea_project_manager:
   expected_output: >
     A list of considerations including positives, negatives and adjecent ideas.
   agent: project_manager
-  input_file: output/business_consultant_response.md
-  output_file: output/project_manager_response.md
 
 summarize:
   description: >
@@ -22,5 +18,3 @@ summarize:
   expected_output: >
     A consise summary of what's discussed in the focus group.
   agent: summarizer
-  input_file: output/project_manager_response.md
-  output_file: output/summary.md
