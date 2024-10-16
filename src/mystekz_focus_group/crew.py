@@ -37,22 +37,21 @@ class MystekzFocusGroupCrew():
     def respond_to_idea_business_consultant(self) -> Task:
         return Task(
             config=self.tasks_config['respond_to_idea_business_consultant'],
-            output_file="business_consultant_response.md",
+            output_file="output/business_consultant_response.md",
         )
 
     @task
     def respond_to_idea_project_manager(self) -> Task:
         return Task(
             config=self.tasks_config['respond_to_idea_project_manager'],
-            input_file="business_consultant_response.md",
-            output_file="project_manager_response.md",
+            output_file="output/project_manager_response.md",
         )
 
     @task
     def summarize(self) -> Task:
         return Task(
             config=self.tasks_config['summarize'],
-            output_file="summary.md",
+            output_file="output/summary.md",
         )
 
     @crew
