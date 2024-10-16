@@ -1,15 +1,15 @@
 respond_to_idea_business_consultant:
   description: >
-    As a business consultant, analyze the {idea} from a strategic and market perspective. Consider potential business opportunities, risks, and market trends.
+    As a business consultant, analyze the {idea} from your perspective.
   expected_output: >
-    A list of considerations including positives, negatives and ajecent ideas.
+    A list of considerations including positives, negatives and adjecent ideas.
   agent: business_consultant
 
 respond_to_idea_project_manager:
   description: >
-    As a project manager, evaluate the {idea} from a project execution perspective. Consider resource allocation, timelines, and potential implementation challenges.
+    As a project manager, evaluate the {idea} from your perspective.
   expected_output: >
-    A list of considerations including positives, negatives and ajecent ideas.
+    A list of considerations including positives, negatives and adjecent ideas.
   agent: project_manager
 
 summarize:
