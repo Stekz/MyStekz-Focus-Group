@@ -1,13 +1,13 @@
 respond_to_idea_business_consultant:
   description: >
-    Think along with and be critical about {idea}.
+    As a business consultant, analyze the {idea} from a strategic and market perspective. Consider potential business opportunities, risks, and market trends.
   expected_output: >
     A list of considerations including positives, negatives and ajecent ideas.
   agent: business_consultant
 
 respond_to_idea_project_manager:
   description: >
-    Think along with and be critical about {idea}.
+    As a project manager, evaluate the {idea} from a project execution perspective. Consider resource allocation, timelines, and potential implementation challenges.
   expected_output: >
     A list of considerations including positives, negatives and ajecent ideas.
   agent: project_manager
