@@ -37,12 +37,15 @@ class MystekzFocusGroupCrew():
     def respond_to_idea_business_consultant(self) -> Task:
         return Task(
             config=self.tasks_config['respond_to_idea_business_consultant'],
+            output_file="business_consultant_response.md",
         )
 
     @task
     def respond_to_idea_project_manager(self) -> Task:
         return Task(
             config=self.tasks_config['respond_to_idea_project_manager'],
+            input_file="business_consultant_response.md",
+            output_file="project_manager_response.md",
         )
 
     @task
@@ -57,7 +60,11 @@ class MystekzFocusGroupCrew():
         """Creates the MystekzFocusGroup crew."""
         return Crew(
             agents=self.agents, # Automatically created by the @agent decorator
-            tasks=self.tasks, # Automatically created by the @task decorator
+            tasks=[
+                self.respond_to_idea_business_consultant(),
+                self.respond_to_idea_project_manager(),
+                self.summarize()
+            ],
             process=Process.sequential,
             verbose=True,
         )
