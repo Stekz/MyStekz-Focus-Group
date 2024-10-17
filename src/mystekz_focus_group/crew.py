@@ -62,7 +62,7 @@ class MystekzFocusGroupCrew():
                 Discuss the following idea regarding our application MyStekz with all participants: {[a.role for a in agents]}. Make sure you convey the whole idea to each participant and that they focus on the idea itself. They should not give feedback on MyStekz overall or how the idea will be implemented.
                 The idea to discuss is: {{idea}}.
             """,
-            expected_output="""A summary of the discussion.""",
+            expected_output="""A discussion in which all participants agree to the outcome.""",
         )
 
 
@@ -110,7 +110,7 @@ class MystekzFocusGroupCrew():
             agents=[
                 self.business_consultant(),
                 self.project_manager(),
-                self.summarizer(),
+                # self.summarizer(),
             ],
             # tasks=[
             #     self.respond_to_idea_business_consultant(),
@@ -118,7 +118,7 @@ class MystekzFocusGroupCrew():
             # ],
             tasks=[
                 self.discuss_idea(),
-                self.summarize(),
+                # self.summarize(),
             ],
             # tools=[ask_human],
             manager_agent=self.facilitator(),
