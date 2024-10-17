@@ -19,17 +19,29 @@ async def set_starters():
 
 @chainlit.on_message
 async def on_message(message):
-    crew_output = await focus_group(inputs={
-        "idea": message.content,
-    })
-    await chainlit.Message(
-        content=crew_output.raw,
-    ).send()
-    print("===========================")
-    print("Tasks output:")
-    print(crew_output.tasks_output)
-    print("===========================")
-    print(f"Token Usage: {crew_output.token_usage}")
+    try:
+        crew_output = await focus_group(inputs={
+            "idea": message.content,
+        })
+        
+        # Send the message and wait for it to complete
+        await chainlit.Message(
+            content=crew_output.raw,
+        ).send()
+        
+        # Log additional information
+        print("===========================")
+        print("Message sent successfully")
+        print("Tasks output:")
+        print(crew_output.tasks_output)
+        print("===========================")
+        print(f"Token Usage: {crew_output.token_usage}")
+    except Exception as e:
+        print(f"Error in on_message: {str(e)}")
+        # Send an error message to the user
+        await chainlit.Message(
+            content=f"An error occurred: {str(e)}",
+        ).send()
 
 @chainlit.step(name="MyStekz focus group", type="tool")
 async def focus_group(inputs: dict) -> CrewOutput:
