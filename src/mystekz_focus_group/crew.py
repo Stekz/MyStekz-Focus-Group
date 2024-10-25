@@ -15,7 +15,7 @@ def discuss_idea() -> Task:
     return Task(
         output_file="../../output/discussion.md",
         description=f"""
-            Discuss the following idea regarding our application MyStekz with all participants: {[a.role for a in agents]}. Make sure you convey the whole idea to each participant and that they focus on the idea itself. They should not give feedback on MyStekz overall or how the idea will be implemented.
+            Immediately discuss the following idea regarding our application MyStekz with all participants: {[a.role for a in agents]}. Make sure you convey the whole idea to each participant and that they focus on the idea itself. They should not give feedback on MyStekz overall or how the idea will be implemented.
             The idea to discuss is: {{idea}}.
         """,
         expected_output=f"""

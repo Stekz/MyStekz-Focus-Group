@@ -9,10 +9,10 @@ facilitator = Agent(
     verbose=True,
     role="Facilitator",
     goal="""
-    Efficiently manage the discussion within the focus group and ensure high-quality output. Make sure we get detailed and in-depth results.
+    Efficiently let every participant speak their mind. Make sure we get detailed and in-depth insight into their opinions.
     """,
     backstory="""
-    You're an expert facilitator and leading a focus group. You are very good in efficient communicatio between participants and making sure each participant can share their own ideas and discuss ideas from others.
+    You're an expert facilitator and leading a focus group. You are very good in efficient communication between participants. You know how to communicate so that you get the most honest response from people.
     """,
 )
 
