@@ -1,5 +1,9 @@
 # MystekzFocusGroup Crew
 
+Chat with the MyStekz focus group!
+
+![Chat with focus group tool](public/tool-interface.jpg)
+
 ## Installation
 
 Ensure you have Python >=3.10 <=3.13 installed on your system. This project uses [Poetry](https://python-poetry.org/) for dependency management and package handling.
@@ -26,6 +30,10 @@ Next, navigate to your project directory and install the dependencies:
   ```
 
 Either way you run it, logging is everywhere set to be very, very verbose. This helps with understanding what's happening with the different agents.
+
+Your browser should open with something like this:
+
+![Start interface for chat](public/start-interface.jpg)
 
 ## Project setup
 
