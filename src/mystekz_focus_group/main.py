@@ -10,12 +10,14 @@ from mystekz_focus_group.crew import focus_group_crew
 async def set_starters(_: chainlit.User | None):
     return [
         chainlit.Starter(
+            icon="/public/icons/present.svg",
             label="Present the 'Stages' idea.",
             message="""
                 A business consultant normally maps the current state of the business. After that, the next step is ofthen identifying areas of improvement. In our current application you can only model the business once and update that model. However, we're thinking about adding a concept called 'stages' so you can model different versions of the businenss in parallel to each other. That way you can more easily model an improved or digitized version of the business.
             """,
         ),
         chainlit.Starter(
+            icon="/public/icons/discussion.svg",
             label="How should stages be defined?",
             message="""
                 In MyStekz, we will add the modeling of several stages of the business. Users can add stages themselves and give them a name like Current or MVP. In MyStekz you model your business using Domains, Products and Processes in this hierarchy. Should each stage include everything? Or should they be modeled completely separate? Or should they use a subset of the main stage defined?
